@@ -58,9 +58,14 @@ COPY config/ssh_config /root/.ssh/config
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh && chown root:root /entrypoint.sh
 
+COPY config/fpm/php.ini /etc/php/7.0/fpm/php.ini
+COPY config/fpm/pool.d/* /etc/php/7.0/fpm/pool.d/
+
 VOLUME /srv
 WORKDIR /srv
 
+EXPOSE 9000
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["/usr/sbin/php7.0"]
+CMD ["/usr/sbin/php7.0-fpm", "-F"]
+#CMD ["/usr/sbin/php7.0"]
