@@ -69,11 +69,11 @@ Depending on tag you use (e.g. 7.0 or 5.6), this container contains useful tools
 To build the container (replace _<tag>_ by the new container tag e.g. : 5.6):
 
 ```sh
-docker build -t seblegall/php:<tag> <php_version>/
+docker build -t seblegall/php-docker:<tag> <php_version>/
 ```
 
 To push the container on hub.docker.com
 
 ```sh
-docker push seblegall/php:<tag>
+docker push seblegall/php-docker:<tag>
 ```
